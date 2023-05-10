@@ -18,9 +18,8 @@ RUN mkdir -p /app/conf && \
     cp -r /go/src/github.com/go-sonic/sonic/conf /app/ && \
     cp -r /go/src/github.com/go-sonic/sonic/resources /app/ && \
     cp /go/src/github.com/go-sonic/sonic/scripts/docker_init.sh /app/
-
-
-
+    
+RUN cd /app/resources/template/theme && rm -rf * && git clone https://github.com/go-sonic/default-theme-anatole.git
 
 FROM alpine:latest as prod
 
